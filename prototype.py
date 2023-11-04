@@ -11,7 +11,7 @@ a001 = 'Menu 1'
 a002 = 'a'
 
 t1 = {0:0 ,1: 'Menu 1' , 2: 'Menu 2', 3: 'Menu 3', 4: 'Menu 4'}
-t2 = {0: 'Terminate', 1: 'Birth Date', 2: 'Check Primitives', 3: 'Checking Operators', 4: 'Multiplication Table'}
+t2 = {0: 'Terminate', 1: 'Birth Date', 2: 'Check Primitives', 3: 'Checking Operators', 4: 'Multiplication Table', 5: 'Exchange Rate',6: 'Finding Hypotenuse', 7: 'Ranking Athletes', 8: 'Normalize Text', 9: 'Compound Interest'}
 
 while True:
     if a001 == 'Terminate':
@@ -32,6 +32,8 @@ while True:
         a002 = md.specialint(input('-> ')) 
         if a002 == 'n':
             a001 = t1[2]
+        elif a002 == 'p':
+            a002 == md.specialint(input('Type a valid answer: '))
         elif 0 < a002 and a002 < 6:
             a001 = t2[a002]
 
@@ -85,6 +87,8 @@ while True:
         a002 = md.specialint(input('-> ')) 
         if a002 == 'p':
             a001 = t1[3]
+        elif a002 == 'n':
+            a002 == md.specialint(input('Type a valid answer: '))
         elif 15 < a002 and a002 < 20:
             a001 = t2[a002]
 
@@ -164,9 +168,152 @@ while True:
             print('\n')
         a001 = t1[1]
     
-    # elif a001 == 'Mu
+    elif a001 == 'Multiplication Table':
+        #if a07 == 'y':
+    # for i in range(1, 11):
+        while True:
+            a08 = md.intvalid(input('Type your number: '))
+            print('\n')
+            for o in range(1, 11):
+                print(f'{a08} x {o} = {a08*o}')
 
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                a001 = t1[1]
+                break
     
+    elif a001 == 'Exchange Rate':
+        while True:
+            a09 = md.floatvalid(input('type a float number (it will be used as the exchange rate): '))
+            b17 = rd.randint(10,20)
+            b18 = rd.randint(50,120)
+            b19 = math.sqrt(b17)
+            b20 = b18*a09
+            b21 = rd.randint(39,113)
+            b22 = 5
+            b23 = b21*b22
+            b24 = b23*b19
+
+            print(f'\nIf you had {b18} USD, you would be able to buy {b20:.2f} BRL.')
+            print(f'With {b20:.2f} BRL, you could buy {b21} tins of paint;')
+            print(f'We know that one paint tin contains {b22} liters, and that each liter covers {b19:.2f} square meters;')
+            print(f'So {b21} tins would give us {b23} liters of paint, enough to paint {b24:.2f} square meters\n')
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                break
+
+    elif a001 == 'Finding Hypotenuse':
+        while True:
+            #Finding the hypotenuse
+            #a10 = md.ynvalid(input('The following code will generate random right triangles. Would you like to try it? [y/n]: '))
+            #if a10 == 'y':
+                while True:
+                    while True:
+                        b25 = md.s_triangle() #generate a simple valid triangle with random values 
+                        b26 = math.pow(b25[0], 2) + math.pow(b25[1], 2)
+                        b27 = math.pow(b25[2], 2)
+                        if b26 == b27: #check the Pytagorean theorem condition to a right triangle
+                            break
+                    print(f'Your right triangle is {b25};')
+                    a11 = md.ynvalid(input('Would you like to generate a new one? [y/n]: '))
+                    if a11 == 'n':
+                        break
+
+    elif a001 == 'Ranking Athletes':
+        print('\nNow we are going to create a list of peole and see their ranking in sports tournament;\n')
+        while True:
+            while True:
+                a13 = md.intvalid(input('How many people you want in the tournment: '))
+                if a13 < 3:
+                    print('We need at least 3 people in this tournment.')
+                elif a13 > 10:
+                    print('You will have to give me their names, it will be tiring to name this many people')
+                elif a13 >= 3 and a13 <= 10:
+                    break
+                else:
+                    print(rd.randbytes(256))
+            
+            t02 = [] #define empty list
+            for i in range(1, a13+1):
+                a14 = input(f'Type the name of the {i} competitor: ')
+                t02.append(a14)
+            t03 = rd.sample(t02, a13) #use random to reorder the values
+
+
+            print(f'Your competitors were: {t02}')
+            print(f'They were ranked: {t03}')
+
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                break
+        
+    elif a001 == 'Normalize Text':
+        while True:
+            print('\nNow we are going to manipulate text. Type using special characters (ç, à, õ, ...) and it will return the text properly formated\n')
+
+            a15 = input('Type a sentence: ')
+            col = a15.split() #Split the text. Since it's empty, it's using the whitespace as separator
+            length = (len(col))
+
+            # print(length)
+            print('\n')
+            #This loop uses the module 'unicodedata.normalize' to remove special characters. My def also makes all the characters uppercase, to make it a standard.
+            for i in range(0, length):
+                col[i] = md.normalize_text(col[i]) 
+                print(col[i])
+            print('\n')
+
+            b28 = a15.strip() #removes outsides whitespaces
+            b29 = a15.upper() #manipulate the text: .upper(), .lower(), .title(), etc
+            #b30 = a15.count('text') #how many time text appears in the string
+            #b31 = a15.replace('text1','text2') #replace every text1 for a text2
+            #b32 = a15.find('text') #returns the position of text1 in the string
+            print(a15)
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                break
+    
+    elif a001 == 'Compound Interest':
+        while True:
+            a17 = md.intvalid(input("You've got an investment of $100 that yields 10% every year, how many years from now you want to know your net worth?  "))
+            a18 = 100
+            print('\n')
+            for i in range(0, a17+1):
+                print(f'Year {i}: {a18:.2f}')
+                a18 = a18*1.1
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                break
+
+    elif a001 == 'Car Ticket':
+        while True:
+            a19 = md.intvalid(input('You were on a car trip. What was your max speed? '))
+            b35 = 60
+            b36 = 12
+            b37 = a19 - b35
+            #from 60 to 65, the ticket is 5, for every km above 65, there will be a 15% increase on the ticket. if a19 < 60, nothing happens
+            if b37 <= 0:
+                print('Ok, you were under the limit of 60, nothing happened!')
+            elif b37 > 0 and b37 <= 5:
+                print(f'You exceeded the speed limit by up to 5 mph, your ticket is: ${b36}')
+            elif b37 > 5:
+                b39 = b37 - 5
+                b38 = b36 * math.pow(1.15, b39)
+                print(f"You exceeded the speed limit by over 5, for every 1 mph above this range, there's a 15% increase in your ticket; \nYour ticket is: ${b38}\n")
+            else:
+                print('Error')
+        
+            print('\n')
+            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a09 == 'n':
+                break
+        
+
 
 
 
