@@ -13,6 +13,16 @@ a002 = 'a'
 t1 = {0:0 ,1: 'Menu 1' , 2: 'Menu 2', 3: 'Menu 3', 4: 'Menu 4'}
 t2 = {0: 'Terminate', 1: 'Birth Date', 2: 'Check Primitives', 3: 'Checking Operators', 4: 'Multiplication Table', 5: 'Exchange Rate',6: 'Finding Hypotenuse', 7: 'Ranking Athletes', 8: 'Normalize Text', 9: 'Compound Interest'}
 
+# def try_again():
+#     a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+#     if a01 == 'n':
+#         print('\n')
+#         a001 = t1[1]
+#         break
+#     print('\n')
+#     return a001
+
+
 while True:
     if a001 == 'Terminate':
         print('Thanks for using this code!')
@@ -94,18 +104,25 @@ while True:
 
 
     elif a001 == 'Birth Date':
-        print(f'Hello {q01}, please type your date of birth:')
-        a02 = int(md.intvalid(input('Day: ')))
-        a03 = int(md.intvalid(input('Month: ')))
-        a04 = int(md.intvalid(input('Year: ')))
+        while True:
+            print(f'Hello {q01}, please type your date of birth:')
+            a02 = int(md.intvalid(input('Day: ')))
+            a03 = int(md.intvalid(input('Month: ')))
+            a04 = int(md.intvalid(input('Year: ')))
 
-        b01 = datetime.date(a04, a03, a02) #Use the datetime module to organize the aquired information
-        b02 = datetime.date.today() #Get the current date, so we can subtract by the date of birth and find the age
-        b03 = b02-b01
-        age1 = b03.days // 365
-        print('You are', age1, 'years old')
-        print('\n')
-        a001 = t1[1]
+            b01 = datetime.date(a04, a03, a02) #Use the datetime module to organize the aquired information
+            b02 = datetime.date.today() #Get the current date, so we can subtract by the date of birth and find the age
+            b03 = b02-b01
+            age1 = b03.days // 365
+            print('You are', age1, 'years old')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                a001 = t1[1]
+                break
+            print('\n')
+            print('\n')
+            a001 = t1[1]
 
     elif a001 == 'Check Primitives':
         while True:
@@ -164,9 +181,10 @@ while True:
             a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
             if a01 == 'n':
                 print('\n')
+                a001 = t1[1]
                 break
             print('\n')
-        a001 = t1[1]
+            # try_again()
     
     elif a001 == 'Multiplication Table':
         #if a07 == 'y':
@@ -312,8 +330,7 @@ while True:
             a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
             if a09 == 'n':
                 break
-        if a001 > 1:
-            print('else -> okay darling')
+        
 
 
 
