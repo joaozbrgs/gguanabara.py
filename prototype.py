@@ -312,11 +312,8 @@ while True:
             a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
             if a09 == 'n':
                 break
-        
+        if a001 > 1:
+            print('else -> okay darling')
 
-
-
-
-        
 
 
