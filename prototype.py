@@ -11,7 +11,29 @@ a001 = 'Menu 1'
 a002 = 'a'
 
 t1 = {0:0 ,1: 'Menu 1' , 2: 'Menu 2', 3: 'Menu 3', 4: 'Menu 4'}
-t2 = {0: 'Terminate', 1: 'Birth Date', 2: 'Check Primitives', 3: 'Checking Operators', 4: 'Multiplication Table', 5: 'Exchange Rate',6: 'Finding Hypotenuse', 7: 'Ranking Athletes', 8: 'Normalize Text', 9: 'Compound Interest'}
+t2 = {
+    0: 'Terminate',
+    1: 'Birth Date',
+    2: 'Check Primitives', 
+    3: 'Checking Operators', 
+    4: 'Multiplication Table', 
+    5: 'Exchange Rate',
+    6: 'Finding Hypotenuse', 
+    7: 'Ranking Athletes', 
+    8: 'Normalize Text', 
+    9: 'Compound Interest', 
+    10: 'Car Ticket',
+    11: 'House Loan',
+    12: 'Reverse Counting',
+    13: 'Count Evens',
+    14: 'Sum of Multiples of Three',
+    15: 'Arithmetic Sequence I',
+    16: 'Arithmetic Sequence II',
+    17: 'Guess 0 to 10',
+    18: 'Calculate Factorial',
+    19: 'Display Fibonacci',
+
+}
 
 # def try_again():
 #     a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
@@ -46,6 +68,8 @@ while True:
             a002 == md.specialint(input('Type a valid answer: '))
         elif 0 < a002 and a002 < 6:
             a001 = t2[a002]
+        elif a002 == 0:
+            break
 
     elif a001 == 'Menu 2':
         #Menu 2
@@ -65,6 +89,8 @@ while True:
             a001 = t1[1]
         elif 5 < a002 and a002 < 11:
             a001 = t2[a002]
+        elif a002 == 0:
+            break
 
     elif a001 == 'Menu 3':
         #Menu 3
@@ -84,6 +110,8 @@ while True:
             a001 = t1[2]
         elif 10 < a002 and a002 < 16:
             a001 = t2[a002]
+        elif a002 == 0:
+            break
 
     elif a001 == 'Menu 4':
         #Menu 4
@@ -101,6 +129,8 @@ while True:
             a002 == md.specialint(input('Type a valid answer: '))
         elif 15 < a002 and a002 < 20:
             a001 = t2[a002]
+        elif a002 == 0:
+            break
 
 
     elif a001 == 'Birth Date':
@@ -218,16 +248,19 @@ while True:
             print(f'We know that one paint tin contains {b22} liters, and that each liter covers {b19:.2f} square meters;')
             print(f'So {b21} tins would give us {b23} liters of paint, enough to paint {b24:.2f} square meters\n')
             print('\n')
-            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-            if a09 == 'n':
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
                 break
+            print('\n')
+        a001 = t1[1]
 
     elif a001 == 'Finding Hypotenuse':
         while True:
             #Finding the hypotenuse
             #a10 = md.ynvalid(input('The following code will generate random right triangles. Would you like to try it? [y/n]: '))
             #if a10 == 'y':
-                while True:
+                # while True:
                     while True:
                         b25 = md.s_triangle() #generate a simple valid triangle with random values 
                         b26 = math.pow(b25[0], 2) + math.pow(b25[1], 2)
@@ -235,9 +268,12 @@ while True:
                         if b26 == b27: #check the Pytagorean theorem condition to a right triangle
                             break
                     print(f'Your right triangle is {b25};')
-                    a11 = md.ynvalid(input('Would you like to generate a new one? [y/n]: '))
-                    if a11 == 'n':
+                    a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+                    if a01 == 'n':
+                        print('\n')
                         break
+                    print('\n')
+        a001 = t1[1]
 
     elif a001 == 'Ranking Athletes':
         print('\nNow we are going to create a list of peole and see their ranking in sports tournament;\n')
@@ -264,9 +300,12 @@ while True:
             print(f'They were ranked: {t03}')
 
             print('\n')
-            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-            if a09 == 'n':
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
                 break
+            print('\n')
+        a001 = t1[1]
         
     elif a001 == 'Normalize Text':
         while True:
@@ -291,9 +330,12 @@ while True:
             #b32 = a15.find('text') #returns the position of text1 in the string
             print(a15)
             print('\n')
-            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-            if a09 == 'n':
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
                 break
+            print('\n')
+        a001 = t1[1]
     
     elif a001 == 'Compound Interest':
         while True:
@@ -304,9 +346,12 @@ while True:
                 print(f'Year {i}: {a18:.2f}')
                 a18 = a18*1.1
             print('\n')
-            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-            if a09 == 'n':
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
                 break
+            print('\n')
+        a001 = t1[1]
 
     elif a001 == 'Car Ticket':
         while True:
@@ -322,15 +367,222 @@ while True:
             elif b37 > 5:
                 b39 = b37 - 5
                 b38 = b36 * math.pow(1.15, b39)
-                print(f"You exceeded the speed limit by over 5, for every 1 mph above this range, there's a 15% increase in your ticket; \nYour ticket is: ${b38}\n")
+                print(f"You exceeded the speed limit by over 5, for every 1 mph above this range, there's a 15% increase in your ticket; \nYour ticket is: ${b38:.2f}\n")
             else:
                 print('Error')
         
             print('\n')
-            a09 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-            if a09 == 'n':
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
                 break
-        
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'House Loan':        
+        #House Loan
+        while True:
+            #conditions /part.2
+            print('\nHouse loan information ')
+            a1 = md.intvalid(input('House price: '))
+            a2 = md.intvalid(input('Your anual salary: '))
+            a3 = md.intvalid(input('Amount of years to pay: '))
+            #if the monthly premium is above 30% of montly salary, deny the loan
+            #print the minimum amount of periods that makes the loan possible
+
+            b1 = a2/12 #monthly salary
+            b4 = a3*12 #total montly periods
+            b2 = a1/b4 #montly premium
+            b3 = b1 * 0.3 #max acceptable premium
+
+            if b2 > b3:
+                print("\nLoan Denied: Insuficient Montly Income \n")
+            elif b2 > 0 and b2 <= b3:
+                print("\nLoan Granted!")
+            else:
+                print("ERROR: Unsupported Data")
+                break
+
+            print(f"\nCurrent amount of periods: {b4}")
+            print(f"Your montly salary: {b1:.2f}")
+            print(f"Current premium: {b2:.2f}")
+            print(f"Current limit line: {b3:.2f}\n")
+
+            if b2 > b3:
+                while b2 > b3:
+                    b4 += 1
+                    b2 = a1/b4
+                b5 = b4/12
+                print(f'\nFor your income range, you would need at least {b4} months, or {b5:.1f} years\n')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Reverse Counting':
+        for i in range(0, 11):
+            a4 = 10 - i
+            print(a4)
+            time.sleep(1)
+
+        if a4 == 0:
+            print('boom!')
+
+        print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Count Evens':
+        while True:
+            a5 = md.intvalid(input('Type any number: '))
+            b6 = 0
+            for i in range(0, a5+1):
+                a6 = i % 2
+                if a6 == 0:
+                    b6 += 1
+            print(f'There are {b6} even numbers between 0 and {a5}')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]    
+
+    elif a001 == 'Sum of Multiples of Three':
+        while True:
+            a7 = md.intvalid(input('Type any other number: '))
+            b7 = []
+            for i in range (0, a7+1):
+                a8 = i % 2
+                a9 = i % 3
+                if a9 == 0 and a8 != 0:
+                    b7.append(i)
+
+            b8 = sum(b7)
+            print(f'\nThe sum of all multiples of three (not even) between 1 and {a7} is: {b8}\n')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Arithmetic Sequence I':
+        while True:
+            print('Now we are going to create an Arithmetic Sequence, and show the first 10 terms')
+            a10 = md.intvalid(input('What is the first term: '))
+            a11 = md.intvalid(input('What is the common difference: '))
+            b10 = []
+            for i in range(1,11):
+                a12 = a10 + (i-1)*a11
+                b10.append(a12)
+            print(b10)
+            print('\n')
+            a13 = md.intvalid(input('Type any number: '))
+            a14 = md.isprime(a13)
+
+            print(f'Is prime: {a14}')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Arithmetic Sequence II':
+        while True:
+            b11 = md.ynvalid(input('We are going to create an Arithmetic Sequence again. Do you want to input new values (if you have not done topic 15, type "y")? [y/n]: '))
+            if b11 == 'y':
+                a10 = md.intvalid(input('What is the first term: '))
+                a11 = md.intvalid(input('What is the common difference: '))
+
+            t1 = []
+            o=1
+            o2 = 11
+            a24 = 1
+            while a24 > 0:
+                for i in range(o, o2):
+                    a22 = a10 + (o-1)*a11
+                    t1.append(a22)
+                    o += 1
+                while True:
+                    a23 = len(t1)
+                    print(f'The next {a23} terms of the sequence are: \n{t1}')
+                    t1 = []
+                    a24 = md.intvalid(input('How many more terms would you like to know?: '))
+                    o2 = o + a24
+                    break
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+
+    elif a001 == 'Guess 0 to 10':
+        while True:
+            while True:
+                a25 = rd.randint(0,10)
+                a26 = md.intvalid(input('Guess a number between 0 to 10: '))
+                if a25 == a26:
+                    print(f'Congatulations! {a26} was the right number!')
+                    break
+                else:
+                    print(f'You missed... The right number was {a25}')
+            a01 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Calculate Factorial':
+        #calculate the factorial of x once with for and once with while
+        while True:
+            print('\nNow we are going to check the factorial of any given number\n')
+            a27 = md.intvalid(input("Type your number: "))
+            t2 = []
+            while a27 > 0:
+                a27 -= 1
+                t2.append(a27+1)
+            print(t2)
+            o4 = len(t2)
+            o5 = 0
+            o6 = 1
+            while o5 < o4:
+                o6 = o6 * t2[o5]
+                o5 += 1
+            print(o6)
+            a01 = md.ynvalid(input('\nWould you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
+
+    elif a001 == 'Display Fibonacci':
+        while True:
+            a30 = md.intvalid(input('What position of the fibonacci sequence do you want to know: '))
+            t4 = [0, 1]
+            i = 0
+            while i < a30:
+                a31 = t4[i+1] + t4[i]
+                t4.append(a31)
+                i += 1
+                
+                # break
+
+            print(t4)
+            print(f'the {a30}th term of the fibonacci sequence is: {t4[i]}')
+            a01 = md.ynvalid(input('\nWould you like to try again? [y/n]: '))
+            if a01 == 'n':
+                print('\n')
+                break
+            print('\n')
+        a001 = t1[1]
 
 
 
+print('Thanks for trying this code!')
