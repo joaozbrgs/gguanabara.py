@@ -1,3 +1,4 @@
+# Matheus a lenda
 import random as rd
 import unicodedata
 error = ('type a valid answer: ')
