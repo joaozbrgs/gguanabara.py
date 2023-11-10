@@ -1,17 +1,14 @@
-# while True:
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
-#     m = int(input('type a number: '))
-#     print('\n')
-#     for i in range(1,11):
-#         print(f'{m} x {i} = {m*i}')
-#         i += 1
+def get_html_table(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    table = soup.find('table', class_='wikitable')
+    return pd.read_html(str(table.prettify()))[0]
 
-#     print('\n')
-#     break
+url = 'https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)'
+table_data = get_html_table(url)
 
-#String Tips
-name = 'John'
-print('=' * 20)
-print(f'{name:-^20}')
-print('=' * 20)
-
+print(table_data)
