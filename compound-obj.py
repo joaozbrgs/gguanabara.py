@@ -1,4 +1,6 @@
-
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
 #Tuples
 
@@ -34,3 +36,17 @@ while True:
 
 
 print(f'You typed the number {t1[a1]}!')
+
+
+
+#73
+def get_html_table(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    table = soup.find('table')
+    return pd.read_html(str(table.prettify()))[0]
+
+url = 'https://www.uol.com.br/esporte/futebol/campeonatos/brasileirao/'
+table_data = get_html_table(url)
+
+print(table_data[0])

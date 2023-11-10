@@ -1,20 +1,32 @@
-import math
-import time
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+#Attempt to import a wikipedia table:
 
+# def get_html_table(url):
+#     response1 = requests.get(url)
+#     soup1 = BeautifulSoup(response1.content, 'html.parser')
+#     table1 = soup1.find('table', class_='wikitable')
+#     return pd.read_html(str(table1.prettify()))[0]
 
-#73
+# url = 'https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)'
+# table_data1 = get_html_table(url)
+
+# print(table_data1) #Success
+
+#Attempt to import a soccer league table
+
 def get_html_table(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    table = soup.find('table', class_ = table)
-    return pd.read_html(table.prettify())[0]
+    response2 = requests.get(url)
+    soup2 = BeautifulSoup(response2.content, 'html.parser')
+    table2 = soup2.find('a', title_ ="Colunas")#class_ = 'data-table score')
+    return pd.read_html(str(table2))[0] #pd.read_html(str(table2.prettify()))[0]
 
-url = 'https://www.google.com/search?q=tabela+brasileirao&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=tabela+brasileirao&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQABgDMgYIAhAAGAMyBggDEAAYAzINCAQQABiDARixAxiABDIHCAUQABiABDIGCAYQABgDMgYIBxAAGAMyBggIEAAYAzIGCAkQABgD0gEINTY1OGoxajeoAgCwAgA&sourceid=chrome&ie=UTF-8#sie=lg;/g/11jspy1hvm;2;/m/0fnk7q;st;fp;1;;;'
-table_data = get_html_table(url)
+url = 'https://www.uol.com.br/esporte/futebol/campeonatos/brasileirao/'
+table_data2 = get_html_table(url)
 
-print(table_data)
+print((table_data2)) #Success
+
+
 
