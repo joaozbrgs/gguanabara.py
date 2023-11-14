@@ -20,13 +20,20 @@ from bs4 import BeautifulSoup
 def get_html_table(url):
     response2 = requests.get(url)
     soup2 = BeautifulSoup(response2.content, 'html.parser')
-    table2 = soup2.find('a', title_ ="Colunas")#class_ = 'data-table score')
+    table2 = soup2.find('table', class_ = 'data-table name')
     return pd.read_html(str(table2))[0] #pd.read_html(str(table2.prettify()))[0]
 
 url = 'https://www.uol.com.br/esporte/futebol/campeonatos/brasileirao/'
 table_data2 = get_html_table(url)
 
-print((table_data2)) #Success
+#print((table_data2)) #Success
+
+df = table_data2['classificação']
+
+# a1 = table_data2.shape[2]
+# a2 = len(table_data2.columns)
+# # a3 = df.count(axis=1)
 
 
-
+# print(a2)
+print(df)

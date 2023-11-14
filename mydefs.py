@@ -54,9 +54,22 @@ def isprime(text3):
     
     # m03 = t01 > 2 ? ('FALSE') : t01 == 2 ? ('TRUE') : t01
 
-    m03 = ('FALSE') if t01 > 2  else ('TRUE') if t01 == 2 else t01
+    m03 = False if t01 > 2  else True if t01 == 2 else t01
     
     return m03
+
+def iseven(text8):
+    m8 = text8 % 2
+    if m8 == 0:
+        m81 = True
+    else:
+        m81 =False
+    return m81
+
+
+
+
+
 
 def ynvalid(text4):
     while True:

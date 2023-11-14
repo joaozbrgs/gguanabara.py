@@ -1,39 +1,12 @@
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
-#Succesfully imported a wikipedia table:
-
-def get_html_table(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    table = soup.find('table', class_="data-table score")
-    return pd.read_html(str(table.prettify()))[0]
-
-url = 'https://www.uol.com.br/esporte/futebol/campeonatos/brasileirao/'
-table_data = get_html_table(url)
+import mydefs as md
 
 
-def get_html_table2(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    table = soup.find('table', class_="data-table name")
-    return pd.read_html(str(table.prettify()))[0]
-
-table_data = get_html_table(url)
-
-
-name = get_html_table2(url=url)
-score = get_html_table(url=url)
-
-name = name.reset_index(axis=1)
-
-
-df = name.merge(score, how='left', )
-
-print(type(name))
-# print(score)
-
-print('\n')
-#print((table_data))
-print('\n')
+l5 = [0,0,0,0,0]
+n = 0
+while len(l5) <= 5:
+    b2 = int(input('Type a number: '))
+    if b2 in l5:
+        print("This value was already on the list and won't be added")
+    else:
+        b9 = len(l5)
+        # for i in range(0, b9):
