@@ -1,12 +1,12 @@
 import mydefs as md
 
 
-l5 = [0,0,0,0,0]
-n = 0
-while len(l5) <= 5:
-    b2 = int(input('Type a number: '))
-    if b2 in l5:
-        print("This value was already on the list and won't be added")
-    else:
-        b9 = len(l5)
-        # for i in range(0, b9):
+# if a1 == 83:
+a831 = input('\nType your expression: ')
+l83 = list(a831)
+l83 = [char for char in l83 if not char.isspace()]
+
+b831 = l83.find('(', ')', '[', ']', '{', '}')
+
+print(l83)
+print(b831)
