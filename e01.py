@@ -8,23 +8,31 @@ import math
 #4. The individuals from the previous generation can have kids, but should be counted
 #5. The total amount of people on each generation will be (1: The people from the previous, 2: Adults from the current, 3: Children from the current)
 
-# def generation(pop):
-#     a0 = pop
-#     a1 = pop/2 #divide in couples 
-#     a2 = a1 * 8 #8 kids for each couple
-#     a3 = a2 + a0
-#     return a3
+while True:
+    t1 = [8, 32, 128]
+    gen = int(input('Type the generation you want: '))
+
+    if len(t1) >= gen:
+        if gen == 1:
+            r2 = t1[0]
+        elif gen == 2:
+            r2 = t1[1] + t1[0]
+        elif gen == 3:
+            r2 = t1[2] + t1[1] + t1[0]
+    else:
+        for i in range(len(t1) + 1, gen + 1):
+            a1 = t1[-1] * 4
+            t1.append(a1)
+            r3 = t1[-1] + t1[-2] + t1[-3]
+
+    if gen <= 3:
+        print(r2)
+    else:
+        print(r3)
+
+    print('\n', '-'*30, '\n')
+    print(t1)
+    print('\n', '-'*30, '\n')
 
 
 
-pop_01 = 8
-
-b1 = generation(pop_01)
-print(b1)
-
-for i in range(0,19):
-    
-    a0 = pop_01
-    a1 = pop_01/2 #divide in couples 
-    a2 = a1 * 8 #8 kids for each couple
-    a3 = a2 + a0
