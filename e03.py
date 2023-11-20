@@ -13,4 +13,9 @@ while result != game1:
     game1 = sorted(rd.sample(pool, 6))
     i += 1
 
+print('=' * 30)
+print('\n')
+print(game1, '\n')
 print(i)
+print('\n')
+print('=' * 30)
