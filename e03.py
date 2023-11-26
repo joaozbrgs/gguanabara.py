@@ -15,4 +15,9 @@ while result != game1:
     # if i > 5:
     #     break
 
+print('=' * 30)
+print('\n')
+print(game1, '\n')
 print(i)
+print('\n')
+print('=' * 30)
