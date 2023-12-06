@@ -142,11 +142,11 @@ while True:
     if a1 == 75:
         while True:
             t3 = (
-                md.intvalid(input('Type a number:')),
-                md.intvalid(input('Type a number:')),
-                md.intvalid(input('Type a number:')),
-                md.intvalid(input('Type a number:')),
-                md.intvalid(input('Type a number:')),
+                md.intvalid(input('Type a number: ')),
+                md.intvalid(input('Type a number: ')),
+                md.intvalid(input('Type a number: ')),
+                md.intvalid(input('Type a number: ')),
+                md.intvalid(input('Type a number: ')),
             )
             
             if 3 in t3:
@@ -184,7 +184,13 @@ while True:
         print('\nUnavailable tasks...\n')
 
     #79
-    if a1 == 79:
+    l12 = [
+        76,
+        77,
+        78,
+        79
+    ]
+    if a1 in l12:
         while True:
             l4 = []
             
@@ -284,15 +290,57 @@ while True:
 
     #83  -INCOMPLETE-
     #Checks if the parentheses, brackets and curly brackets are properly placed in a given expression
-    if a1 == 83:
-        a831 = input('\nType your expression: ')
-        l83 = list(a831)
-        l83 = [char for char in l83 if not char.isspace()] #removes whitespaces from the list
+    ll1 = [
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}']
+    ]
 
-        # b831 = l83.find('(', ')', '[', ']', '{', '}')
+    while True:
+        a1 = str(input('Type your expression: '))
+        b1 = a1.replace(' ',  '')
 
-        print(l83)
-        # print(b831)
+        print(f'\n{b1}\n')
+
+        valid_char = [item for sublist in ll1 for item in sublist]
+        check = list()
+        stack = list() #this will use the method LIFO to check the balance of opening and closing characters
+
+        for i in range(len(b1)):
+            if b1[i] in valid_char:
+                check.append(b1[i])
+
+        for char in range(len(check)):
+            b2 = check[char]
+            d1 = 1
+            for o in range(len(ll1)):
+                if b2 == ll1[o][0]:
+                    stack.append(b2)
+                elif b2 == ll1[o][1]:
+                    if len(stack) == 0:                
+                        d1 = 0                
+                        break
+                    elif stack[-1] == ll1[o][0]:
+                        stack.pop()
+                    else:               
+                        d1 = 0
+                        break
+            if d1 == 0:
+                break
+
+        print('-' * 30, '\n')
+        print(check)
+        print(stack)
+        print('\n', '-' * 30, '\n')
+
+        if len(stack) == 0:
+            print('Balanced!\n')
+        else:
+            print('Unbalanced!\n')
+        
+        v1 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+        if v1 == 'n':
+            break
 
     #84
     if a1 == 83:
