@@ -288,7 +288,7 @@ while True:
         
         print(f'\nThe full list is {sorted(l7)};\n\nThe evens: {sorted(l71)};\n\nThe odds: {sorted(l72)}\n')
 
-    #83  -INCOMPLETE-
+    #83  -COMPLETE-
     #Checks if the parentheses, brackets and curly brackets are properly placed in a given expression
     ll1 = [
         ['(', ')'],
