@@ -289,61 +289,62 @@ while True:
         print(f'\nThe full list is {sorted(l7)};\n\nThe evens: {sorted(l71)};\n\nThe odds: {sorted(l72)}\n')
 
     #83  -COMPLETE-
+    if a1 == 83:
     #Checks if the parentheses, brackets and curly brackets are properly placed in a given expression
-    ll1 = [
-        ['(', ')'],
-        ['[', ']'],
-        ['{', '}']
-    ]
+        ll1 = [
+            ['(', ')'],
+            ['[', ']'],
+            ['{', '}']
+        ]
 
-    while True:
-        a1 = str(input('Type your expression: '))
-        b1 = a1.replace(' ',  '')
+        while True:
+            a1 = str(input('Type your expression: '))
+            b1 = a1.replace(' ',  '')
 
-        print(f'\n{b1}\n')
+            print(f'\n{b1}\n')
 
-        valid_char = [item for sublist in ll1 for item in sublist]
-        check = list()
-        stack = list() #this will use the method LIFO to check the balance of opening and closing characters
+            valid_char = [item for sublist in ll1 for item in sublist]
+            check = list()
+            stack = list() #this will use the method LIFO to check the balance of opening and closing characters
 
-        for i in range(len(b1)):
-            if b1[i] in valid_char:
-                check.append(b1[i])
+            for i in range(len(b1)):
+                if b1[i] in valid_char:
+                    check.append(b1[i])
 
-        for char in range(len(check)):
-            b2 = check[char]
-            d1 = 1
-            for o in range(len(ll1)):
-                if b2 == ll1[o][0]:
-                    stack.append(b2)
-                elif b2 == ll1[o][1]:
-                    if len(stack) == 0:                
-                        d1 = 0                
-                        break
-                    elif stack[-1] == ll1[o][0]:
-                        stack.pop()
-                    else:               
-                        d1 = 0
-                        break
-            if d1 == 0:
+            for char in range(len(check)):
+                b2 = check[char]
+                d1 = 1
+                for o in range(len(ll1)):
+                    if b2 == ll1[o][0]:
+                        stack.append(b2)
+                    elif b2 == ll1[o][1]:
+                        if len(stack) == 0:                
+                            d1 = 0                
+                            break
+                        elif stack[-1] == ll1[o][0]:
+                            stack.pop()
+                        else:               
+                            d1 = 0
+                            break
+                if d1 == 0:
+                    break
+
+            print('-' * 30, '\n')
+            print(check)
+            print(stack)
+            print('\n', '-' * 30, '\n')
+
+            if len(stack) == 0 and d1 != 0:
+                print('Balanced!\n')
+            else:
+                print('Unbalanced!\n')
+            
+            v1 = md.ynvalid(input('Would you like to try again? [y/n]: '))
+            if v1 == 'n':
                 break
 
-        print('-' * 30, '\n')
-        print(check)
-        print(stack)
-        print('\n', '-' * 30, '\n')
-
-        if len(stack) == 0:
-            print('Balanced!\n')
-        else:
-            print('Unbalanced!\n')
-        
-        v1 = md.ynvalid(input('Would you like to try again? [y/n]: '))
-        if v1 == 'n':
-            break
-
     #84
-    if a1 == 83:
+    if a1 == 84:
         l84 = list()
         b1 = md.intvalid(input('How many people do you want in your list: '))
         for i in range(0,b1):
@@ -352,8 +353,6 @@ while True:
                 md.floatvalid(input(f'What is the weight of person {i+1}: ')),
                 md.intvalid(input(f'What is the age of person {i+1}: '))
             ]
-                
-
 
             l84.append(l841[:])
         print(l84)
@@ -374,10 +373,61 @@ while True:
             print(f'-> {l84[i][2]}', end='')
         print('')
 
+    #85
+    #Separates a single list with multiple values in two lists: one of odd and one of evens. Display both lists separately in ascending order
+    if a1 == 85:
+        b85 = md.intvalid(input('\nHow many values do you want to input on your list: '))
+        l85 = list()
+        e85 = list()
+        o85 = list()
+        for i in range(b85):
+            c85 = md.intvalid(input(f'\nType your {i+1}° value: '))
+            l85.append(c85)
 
+        print(l85)
+        f85 = sorted(l85, reverse= True)
+        print(f85)
 
+        while len(f85) > 0:
+            a85 = f85[-1]
+            if md.iseven(a85):
+                e85.append(a85)
+                f85.pop()
+                print(f85)
+            else:
+                o85.append(a85)
+                f85.pop()
+                print(f85)
+
+        print('\n', '-' *30, '\n')
+        print(e85, '\n')
+        print(o85)        
+        print('\n', '-' *30, '\n')
+
+    #86
+    #Create a matrix using list of lists
+    if a1 == 86:
+        matrix = []
+        for i in range(0,3):
+            row = []
+            for o in range(0,3):
+                e86 = md.intvalid(input(f'Type a value for [{i}, {o}]: '))
+                row.append(e86)
+            matrix.append(row)
+            
+
+        for e in range(0,3):
+            print(f'[ {matrix[e][0]} ]', end= '')
+            print(f'[ {matrix[e][1]} ]', end= '')
+            print(f'[ {matrix[e][2]} ]', end= '')
+            print('')
+
+    #87
+    
 
                     
+
+
 
 
 

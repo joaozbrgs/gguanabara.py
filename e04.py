@@ -1,12 +1,2 @@
-ll1 = [
-    ['(', ')'],
-    ['[', ']'],
-    ['{', '}']
-]
+import mydefs as md
 
-l2 = list()
-
-if len(l2) == 0:
-    print('ok')
-else: 
-    print('false')
