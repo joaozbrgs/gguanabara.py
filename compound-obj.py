@@ -3,9 +3,10 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import random as rd
+import time
 
 
-l01 = list(range(72,85))
+l01 = list(range(72,100))
 
 print('-' * 30)
 # for i in range (0, len(l01)):
@@ -415,53 +416,87 @@ while True:
                 row.append(e86)
             matrix.append(row)
             
-
+        print('\n', '-' *30, '\n')
         for e in range(0,3):
             print(f'[ {matrix[e][0]} ]', end= '')
             print(f'[ {matrix[e][1]} ]', end= '')
             print(f'[ {matrix[e][2]} ]', end= '')
             print('')
+        print('\n', '-' *30, '\n')
+        #87
+        #Sum of Evens ok
+        #Sum of Column X
+        #Highest on Column X
+        #Sum of Row X
+        #Highest on Row X
+        print('\n', '-' *30, '\n')
+        print(matrix)
+        print('\n', '-' *30, '\n')
+        sum_even = 0
 
-    #87
-    
+        for i in range(3):
+            for o in range(3):
+                n1 = matrix[i][o]
+                if md.iseven(n1):
+                    sum_even += n1
 
-                    
+        print('\n', '-' *30, '\n')
+        print(f'The sum of Evens is: {sum_even}')
+        print('\n', '-' *30, '\n')
 
+        n2 = int(input('Chose a column to know the highest value and the sum: '))
+        n2 -= 1
 
+        sum_columnx = 0
+        highest_column = list()
 
+        for i in range(3):
+            n3 = matrix[i][n2]
+            sum_columnx += n3
+            highest_column.append(n3)
 
+        n5 = sorted(highest_column)
+        n6 = n5[-1]
 
-
-
-    if a1 == 71:
-        l1 = [
-            'One',
-            2,
-            3.0,
-            '4',
-            'five',
-            6,
-            7,
-            '8',
-            9.0,
-            'ten'
-        ]
-
-        l2 = []
-
-        for i in range(1,11):
-            l2.append(i)
-
-        l3 = list(range(20,31))
+        print('\n', '-' *30, '\n')
+        print(f'The highest value is {n6} and the sum of column {n2+1} is {sum_columnx}')
 
 
-        print(l1,l2)
+    #88
+    #suggest n games for the lotery
+    #cooldown of 1 sec
+    #no repeated games
 
-        if 7 in l1 and 7 in l2:
-            l1.remove(7)
-            l2.remove(7)
+    pool = list()
+    games = list()
 
-        l3.sort(reverse=True)
+    for i in range(1, 61):
+        pool.append(i)
+
+    n1 = md.intvalid(input('How many games do you want: '))
+
+    game1 = 1
+    while game1 <= n1:
+        if len(games) == 0:
+            n_game = rd.sample(pool, 6)
+            n_game1 = sorted(n_game)        
+            games.append(n_game1)
+            game1 += 1
+        else:
+            n_game = rd.sample(pool, 6)
+            n_game1 = sorted(n_game) 
+            if n_game not in (games):
+                games.append(n_game1)
+                game1 += 1
+
+    print('\n', '-' *30, '\n')
+    for i in range(len(games)):
+        print(f'Game {i+1}° -> {games[i]}')
+        time.sleep(.6)
+
+    print('\n', '-' *30, '\n')
+
+
 
 
 
